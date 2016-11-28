@@ -1,0 +1,39 @@
+buildscript {
+    ext {
+        springBootVersion = '1.4.2.RELEASE'
+    }
+    repositories {
+        mavenCentral()
+        maven { url 'http://maven.nla.gov.au/snapshots' }
+        maven { url 'http://maven.nla.gov.au/releases' }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'org.springframework.boot'
+
+jar {
+    baseName = 'banjo-migration'
+    version = '0.0.1-SNAPSHOT'
+}
+
+repositories {
+    mavenCentral()
+    maven { url 'http://maven.nla.gov.au/snapshots' }
+    maven { url 'http://maven.nla.gov.au/releases' }
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter')
+    compile('au.gov.nla:amberdb:2.0.6-SNAPSHOT') {
+//        exclude group: 'com.googlecode.flyway'
+    }
+    compile('org.projectlombok:lombok:1.16.10')
+    compile('org.codehaus.groovy:groovy-jsr223:2.1.6')
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
