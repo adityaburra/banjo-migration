@@ -100,7 +100,7 @@ public class BanjoMigrationService {
         log.info("Querying works with sql -> {}", sql);
         List<Long> objIds = queryForWorks(amberHandle, sql);
         log.info("Number of works found: {} and work ids: {}", objIds.size(), objIds);
-        log.info("Updating accessCondition to '{}' and internalAccessCondition to '{}'", accessCondition, internalAccessCondition);
+        log.info("Updating accessCondition to '{}' and internalAccessCondition to '{}' for the works above", accessCondition, internalAccessCondition);
         objIds.forEach(objId -> updateAccessCondition(amberSession, accessCondition, internalAccessCondition, objId));
     }
 
@@ -114,7 +114,7 @@ public class BanjoMigrationService {
         log.info("Querying works with sql -> {}", sql);
         List<Long> objIds = queryForWorks(amberHandle, sql);
         log.info("Number of works found: {} and work ids: {}", objIds.size(), objIds);
-        log.info("Updating accessAgreement to '{}'", accessAgreement);
+        log.info("Updating accessAgreement to '{}' for the works above", accessAgreement);
         objIds.forEach(objId -> updateAccessAgreement(amberSession, accessAgreement, objId));
     }
 

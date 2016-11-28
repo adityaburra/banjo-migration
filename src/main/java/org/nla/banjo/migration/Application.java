@@ -10,15 +10,13 @@ import org.springframework.context.ApplicationContext;
 @Slf4j
 public class Application {
 
-    public static final String AMBERDB_USERNAME = "amber.username";
-    public static final String JDBC_URL = "amber.url";
-    public static final String AMBERDB_PASSWORD = "amber.password";
+    private static final String AMBERDB_USERNAME = "amber.username";
+    private static final String JDBC_URL = "amber.url";
 
     public static void main(String[] args) {
         ApplicationContext ctx = SpringApplication.run(Application.class, args);
         log.info(JDBC_URL + " provided - {}", System.getProperty(JDBC_URL));
         log.info(AMBERDB_USERNAME + " provided - {}", System.getProperty(AMBERDB_USERNAME));
-        log.info(AMBERDB_PASSWORD + " provided - {}", System.getProperty(AMBERDB_PASSWORD));
         BanjoMigrationService migrationService = ctx.getBean(BanjoMigrationService.class);
         migrationService.migrate();
     }
