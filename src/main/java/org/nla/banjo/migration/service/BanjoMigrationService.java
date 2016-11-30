@@ -21,6 +21,8 @@ public class BanjoMigrationService {
     private static final String UNRESTRICTED = "Unrestricted";
     private static final String OPEN = "Open";
     private static final String VIEW_ONLY = "View Only";
+    private static final String BANJO = "banjo";
+    private static final String BANJO_MIGRATION = "banjo migration";
 
     private static final String SELECT_ID_FROM_WORK_WHERE = "select id from work where";
 
@@ -67,7 +69,7 @@ public class BanjoMigrationService {
                 queryAndUpdate(amberSession, amberHandle, ACCESSAGREEMENT_OPENACCESSIMMEDIATELY, "OpenAccessImmediately");
                 queryAndUpdate(amberSession, amberHandle, ACCESSAGREEMENT_OPENACCESSEMBARGOED, "OpenAccessEmbargoed");
                 log.info("Amber session commit in progress");
-                amberSession.commit();
+                amberSession.commit(BANJO, BANJO_MIGRATION);
                 log.info("Amber session commit successful");
             }
         } finally {
@@ -88,7 +90,7 @@ public class BanjoMigrationService {
                 queryAndUpdateAccessCondition(amberSession, amberHandle, ACCESSCONDITION_BASED_ON_ACCESSAGREEMENT, UNRESTRICTED, OPEN);
                 queryAndUpdateAccessCondition(amberSession, amberHandle, ACCESSCONDITION_BASED_ON_ACCESSAGREEMENT_AND_EXPIRY, UNRESTRICTED, OPEN);
                 log.info("Amber session commit in progress");
-                amberSession.commit();
+                amberSession.commit(BANJO, BANJO_MIGRATION);
                 log.info("Amber session commit successful");
             }
         } finally {
