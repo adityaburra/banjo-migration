@@ -24,7 +24,7 @@ public class BanjoMigrationService {
     private static final String BANJO = "banjo";
     private static final String BANJO_MIGRATION = "banjo migration";
 
-    private static final String SELECT_ID_FROM_WORK_WHERE = "select id from work where";
+    private static final String SELECT_ID_FROM_WORK_WHERE = "select id from ${table.name} where";
 
     private static final String DEPOSIT_TYPE_IN = " depositType IN ('OnlineLegal', 'OnlineGovernment', 'OnlineVoluntary', 'OfflineVoluntary')";
 
