@@ -29,7 +29,7 @@ public class AmberRepository {
     @Value("${amber.password}")
     private String password;
 
-    @Value("${amber.path:/tmp/doss}")
+    @Value("${amber.path:/xyz}")
     private String amberdbPath;
 
     public synchronized AmberDb getAmberDb() {
