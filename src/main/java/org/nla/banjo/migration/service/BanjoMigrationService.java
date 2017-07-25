@@ -26,30 +26,6 @@ public class BanjoMigrationService {
 
     private static final String SELECT_ID_FROM_WORK_WHERE = "select id from ${table.name} where";
 
-    private static final String DEPOSIT_TYPE_IN = " depositType IN ('OnlineLegal', 'OnlineGovernment', 'OnlineVoluntary', 'OfflineVoluntary')";
-
-    private static final String ACCESSAGREEMENT_BASICACCESS = SELECT_ID_FROM_WORK_WHERE + DEPOSIT_TYPE_IN + " AND availabilityConstraint LIKE '%edeposit library access coming soon%'";
-
-    private static final String ACCESSAGREEMENT_OPENACCESSIMMEDIATELY = SELECT_ID_FROM_WORK_WHERE + DEPOSIT_TYPE_IN + " AND availabilityConstraint LIKE '%edeposit online access coming soon%'";
-
-    private static final String ACCESSAGREEMENT_OPENACCESSEMBARGOED = SELECT_ID_FROM_WORK_WHERE + DEPOSIT_TYPE_IN + " AND availabilityConstraint LIKE '%edeposit online access after embargo%'";
-
-    private static final String ACCESSCONDITION_BASED_ON_SUBUNITTYPE = SELECT_ID_FROM_WORK_WHERE + " subUnitType = 'Cover' AND depositType IS NOT NULL AND accessAgreement IS NOT NULL;";
-
-    private static final String ACCESSCONDITION_BASED_ON_ACCESSAGREEMENT_AND_COMMERCIALSTATUS = SELECT_ID_FROM_WORK_WHERE + " accessAgreement = 'BasicAccess' AND (NULLIF(commercialStatus, '') IS NULL OR commercialStatus = 'Commercial');";
-
-    private static final String ACCESSCONDITION_BASED_ON_ACCESSAGREEMENT_AND_COMMERCIALSTATUS_AND_EXPIRY = SELECT_ID_FROM_WORK_WHERE + " accessAgreement = 'OpenAccessEmbargoed'" +
-            " AND (NULLIF(commercialStatus, '') IS NULL OR commercialStatus = 'Commercial') AND DATE(expiryDate) >= curdate();";
-
-    private static final String ACCESSCONDITION_BASED_ON_ACCESSAGREEMENT_AND_NONCOMMERCIALSTATUS = SELECT_ID_FROM_WORK_WHERE + " accessAgreement = 'BasicAccess' AND commercialStatus = 'Noncommerc';";
-
-    private static final String ACCESSCONDITION_BASED_ON_ACCESSAGREEMENT_AND_NONCOMMERCIALSTATUS_AND_EXPIRY = SELECT_ID_FROM_WORK_WHERE + " accessAgreement = 'OpenAccessEmbargoed'" +
-            " AND commercialStatus = 'Noncommerc' AND DATE(expiryDate) >= curdate();";
-
-    private static final String ACCESSCONDITION_BASED_ON_ACCESSAGREEMENT = SELECT_ID_FROM_WORK_WHERE + " accessAgreement = 'OpenAccessImmediately';";
-
-    private static final String ACCESSCONDITION_BASED_ON_ACCESSAGREEMENT_AND_EXPIRY = SELECT_ID_FROM_WORK_WHERE + " accessAgreement = 'OpenAccessEmbargoed' AND DATE(expiryDate) <= DATE_SUB(curdate(), INTERVAL 1 DAY);";
-
     @Autowired
     AmberRepository repository;
 
