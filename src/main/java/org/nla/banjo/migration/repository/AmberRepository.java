@@ -19,17 +19,9 @@ public class AmberRepository {
     private DataSource dataSource;
 
     private Path amberPath;
-
-    @Value("${amber.url}")
     private String jdbcUrl;
-
-    @Value("${amber.username}")
     private String userName;
-
-    @Value("${amber.password}")
     private String password;
-
-    @Value("${amber.path:/xyz}")
     private String amberdbPath;
 
     public synchronized AmberDb getAmberDb() {
