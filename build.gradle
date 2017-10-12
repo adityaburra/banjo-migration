@@ -17,7 +17,7 @@ apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
 jar {
-    baseName = 'banjo-migration'
+    baseName = 'application-migration'
     version = '1.0.0-SNAPSHOT'
 }
 
@@ -29,7 +29,7 @@ repositories {
 
 dependencies {
     compile('org.springframework.boot:spring-boot-starter')
-    compile('au.gov.nla:amberdb:2.0.6-SNAPSHOT')
+    compile('au.gov.nla:amberdb:2.3.0-SNAPSHOT')
     compile('org.projectlombok:lombok:1.16.10')
     compile('org.codehaus.groovy:groovy-jsr223:2.1.6')
 

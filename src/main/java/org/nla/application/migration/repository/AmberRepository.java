@@ -1,10 +1,9 @@
-package org.nla.banjo.migration.repository;
+package org.nla.application.migration.repository;
 
 import amberdb.AmberDb;
 import com.jolbox.bonecp.BoneCPDataSource;
 import org.skife.jdbi.v2.DBI;
 import org.skife.jdbi.v2.Handle;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;

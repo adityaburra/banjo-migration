@@ -1,10 +1,10 @@
-package org.nla.banjo.migration.service;
+package org.nla.application.migration.service;
 
 import amberdb.AmberSession;
 import amberdb.model.Work;
 import com.google.common.collect.Lists;
 import lombok.extern.slf4j.Slf4j;
-import org.nla.banjo.migration.repository.AmberRepository;
+import org.nla.application.migration.repository.AmberRepository;
 import org.skife.jdbi.v2.Handle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,15 +14,15 @@ import java.util.Map;
 
 @Service
 @Slf4j
-public class BanjoMigrationService {
+public class MigrationService {
 
     private static final String RESTRICTED = "Restricted";
     private static final String ONSITE_ONLY = "Onsite Only";
     private static final String UNRESTRICTED = "Unrestricted";
     private static final String OPEN = "Open";
     private static final String VIEW_ONLY = "View Only";
-    private static final String BANJO = "banjo";
-    private static final String BANJO_MIGRATION = "banjo migration";
+    private static final String BANJO = "application";
+    private static final String BANJO_MIGRATION = "application migration";
 
     private static final String SELECT_ID_FROM_WORK_WHERE = "select id from ${table.name} where";
 
