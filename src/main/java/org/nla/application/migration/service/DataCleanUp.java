@@ -2,7 +2,7 @@ package org.nla.application.migration.service;
 
 import amberdb.AmberSession;
 import lombok.extern.slf4j.Slf4j;
-import org.nla.application.migration.repository.AmberRepository;
+import org.nla.banjo.migration.repository.AmberRepository;
 import org.skife.jdbi.v2.Handle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
