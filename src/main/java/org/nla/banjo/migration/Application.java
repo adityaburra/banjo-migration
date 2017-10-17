@@ -1,7 +1,7 @@
-package org.nla.application.migration;
+package org.nla.banjo.migration;
 
 import lombok.extern.slf4j.Slf4j;
-import org.nla.application.migration.service.MigrationService;
+import org.nla.banjo.migration.service.BanjoMigrationService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -17,7 +17,7 @@ public class Application {
         ApplicationContext ctx = SpringApplication.run(Application.class, args);
         log.info(JDBC_URL + " provided - {}", System.getProperty(JDBC_URL));
         log.info(AMBERDB_USERNAME + " provided - {}", System.getProperty(AMBERDB_USERNAME));
-        MigrationService migrationService = ctx.getBean(MigrationService.class);
+        BanjoMigrationService migrationService = ctx.getBean(BanjoMigrationService.class);
         migrationService.migrate();
     }
 }
